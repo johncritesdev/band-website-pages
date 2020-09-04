@@ -1,0 +1,52 @@
+.header {
+  text-align: center;
+
+  @include respond(tab-land) {
+    margin-top: 4vh;
+  }
+
+  @include respond(tab-port) {
+    margin-top: 2vh;
+  }
+
+  @include respond(phone) {
+    margin-top: 2vh;
+  }
+
+  &__logo-box {
+    width: 55%;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    width: 75%;
+    z-index: 1;
+
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+}
+
+#dsk-tbl {
+
+  @include respond(phone) {
+    display: none;
+  }
+}
+
+#phone {
+  display: none;
+
+  @include respond(phone) {
+   display: block; 
+  }
+}
+
+
+/**********Heading**********/
+
+.heading {
+  text-align: center;
+}
+

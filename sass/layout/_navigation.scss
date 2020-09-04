@@ -1,0 +1,228 @@
+.nav-btn {
+
+  display: none;
+
+  @include respond(tab-port) {
+    display: block;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    background-color: $color-primary;
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    top: 0;
+    left: 3.5rem;
+    z-index: 2;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+
+    @include respond(sm-phone) {
+      left: 1.5rem;
+    }
+
+    @include respond(tab-land) {
+      left: 2.5rem;
+    }
+
+    @include respond(tab-port) {
+      left: 3rem;
+    }
+  }
+
+  &__background {
+    height: 4.5rem;
+    width: 4.5rem;
+    position: fixed;
+    top: 0;
+    left: 3.5rem;
+    background-color: $color-primary;
+    transition: transform .8s;
+    border-radius: 50%;
+
+    @include respond(sm-phone) {
+      left: 1.5rem;
+    }
+  }
+
+  //functionality
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ .navigation-menu {
+    opacity: 1;
+    width: 100%;
+  }
+
+  //icon
+  &__icon {
+    position: relative;
+    margin-top: 3rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-secondary;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all .2s;
+    }
+
+    &::before {top: -.8rem;}
+    &::after {top: .8rem;}
+  }
+  //make the lines cross
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
+
+.navigation-menu {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  width: 0;
+  transition: all .8s;
+
+  &__list{
+    list-style: none;
+    text-align: center;
+  }
+
+  &__item {
+    margin: 1rem;
+    padding: 1rem 2rem;
+  }
+
+  &__link {
+    font-size: 3rem;
+    font-weight: 300;
+    color: $color-secondary;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+}
+
+
+
+
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  background-color: $color-primary;
+
+  @include respond(tab-port) {
+    height: 8vh;
+  }
+
+  @include respond(tab-land) {
+    height: 9vh;
+  }
+}
+
+.navbar__nav-links {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin: 0 auto;
+
+  @include respond(tab-port) {
+    display: none; 
+  }
+}
+
+.navbar__nav-link {
+  position: relative;
+}
+
+.navbar__effect {
+  
+    padding: .5rem 0;
+    letter-spacing: 4px;
+    color: $color-secondary;
+    text-decoration: none;
+    font-size: $default-font-size;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar__effect::before,
+.navbar__effect::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: $color-secondary;
+  left: 0;
+  transform: scaleX(0);
+  transition: all .5s;
+}
+
+.navbar__effect::before {
+  top: 0;
+  transform-origin: left;
+}
+
+.navbar__effect::after {
+  bottom: 0;
+  transform-origin: right;
+}
+
+.navbar__effect:hover::before,
+.navbar__effect:hover::after {
+  transform: scale(1);
+}
+
+.navbar__nav-btn {
+  display: inline-block;
+  padding: 0.8rem;
+  cursor: pointer;
+}
+
+.navbar__nav-btn div {
+  width: 25px;
+  height: 3px;
+  background-color: $color-btn;
+  margin: 4px;
+
+}

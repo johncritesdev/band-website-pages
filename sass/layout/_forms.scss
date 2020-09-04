@@ -1,0 +1,72 @@
+.contact__form {
+  text-align: center;
+  margin-top: 5rem;
+  transition: all 4s ease-out;
+
+  .form {
+
+    &__input {
+      width: 60rem;
+      background: transparent;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid rgba($color-secondary, .8);
+      color: $color-secondary;
+      font-size: 1.6rem;
+      margin-bottom: 1.6rem;
+
+      @include respond(phone) {
+        width: 50rem;
+      }
+
+      @include respond(md-phone) {
+        width: 35rem;
+      }
+
+      @include respond(sm-phone) {
+        width: 30rem;
+      }
+    }
+  }
+
+  input {
+    height: 4.5rem;
+  }
+}
+
+.form__input--submit {
+  background: #f4f4f4;
+  width: 60rem;
+  height: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: $color-primary;
+  transition: all .2s;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+  }
+
+  @include respond(phone) {
+    width: 50rem;
+  }
+
+  @include respond(md-phone) {
+    width: 35rem;
+  }
+
+  @include respond(sm-phone) {
+    width: 30rem;
+  }
+}

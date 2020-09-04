@@ -1,0 +1,32 @@
+.gigs__book-us {
+  width: 80%;
+  margin: 1rem auto;
+  text-align: center;
+  background-color: $color-secondary;
+  border-radius: 5px;
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.gigs__btn:link,
+.gigs__btn:visited {
+    width: 100%;
+    display: inline-block;
+    font-size: $default-font-size;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $color-primary;
+}
+
+.gigs__book-us:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+}
+
+.gigs__book-us:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+}

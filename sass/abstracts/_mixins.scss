@@ -1,0 +1,109 @@
+
+//Media query manager
+/*
+0-600px: mobile
+600 - 900px: tablet portrait
+900 - 1200px: tablet landscape
+[1200px-1800px] is where our normal styles are applied
+subjective(1800px + :  desktop) may not use
+
+$breakpoint argument choices:
+-sm-phone
+-md-phone
+-phone
+-tab-port
+-tab-land
+-big-desktop
+
+ORDER: Base + typography > general layout + grid page layout > components 
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == xsm-phone {
+    //320px
+    @media (max-width: 20em) {
+      @content
+    };
+  }
+
+  @if $breakpoint == sm-phone {
+    //370px
+    @media (max-width: 23.5em) {
+      @content
+    };
+  }
+
+  @if $breakpoint == md-phone {
+    //420px
+    @media (max-width: 26.25em) {
+      @content
+    };
+  }
+
+  @if $breakpoint == phone {
+    //600px
+    @media (max-width: 37.5em) {
+      @content
+    };
+  }
+
+  @if $breakpoint == phone-land {
+    //640px
+    @media (max-width: 40em) {
+      @content
+    };
+  }
+
+  @if $breakpoint == phone-land-2 {
+    //667px
+    @media (max-width: 41.688em) {
+      @content
+    };
+  }
+
+  @if $breakpoint == phone-land-1 {
+    //731px
+    @media (max-width: 45.688em) {
+      @content
+    };
+  }
+
+  @if $breakpoint == phone-land-3 {
+    //736px
+    @media (max-width: 46em) {
+      @content
+    };
+  }
+
+  @if $breakpoint == phone-land-x {
+    //812px
+    @media (max-width: 50.750em) {
+      @content
+    };
+  }
+
+  @if $breakpoint == tab-port {
+    //900px
+    @media (max-width: 56.25em) {
+      @content
+    };
+  }
+  @if $breakpoint == tab-land-1 {
+    //1024px
+    @media (max-width: 64em) {
+      @content
+    };
+  }
+  @if $breakpoint == tab-land {
+    //1200px
+    @media (max-width: 75em) {
+      @content
+    };
+  }
+  @if $breakpoint == big-desktop {
+    //1800px
+    @media (min-width: 112.5em) {
+      @content
+    };
+  }
+}

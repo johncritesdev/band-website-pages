@@ -1,0 +1,698 @@
+/*
+0-600px: mobile
+600 - 900px: tablet portrait
+900 - 1200px: tablet landscape
+[1200px-1800px] is where our normal styles are applied
+subjective(1800px + :  desktop) may not use
+
+$breakpoint argument choices:
+-sm-phone
+-md-phone
+-phone
+-tab-port
+-tab-land
+-big-desktop
+
+ORDER: Base + typography > general layout + grid page layout > components 
+*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-25%); }
+  80% {
+    transform: translateX(5%); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  font-family: "Raleway", sans-serif;
+  color: #f4f4f4;
+  font-weight: 300;
+  line-height: 1.6;
+  background-color: #222; }
+
+.u-large-heading {
+  font-weight: 300;
+  font-size: 3rem;
+  letter-spacing: 5px;
+  line-height: 0;
+  padding-bottom: 2rem;
+  color: #89d2da;
+  text-transform: uppercase;
+  animation-name: moveInLeft;
+  animation-duration: 1.5s;
+  display: inline-block;
+  animation-timing-function: ease-out; }
+  @media (max-width: 26.25em) {
+    .u-large-heading {
+      font-size: 2rem;
+      letter-spacing: 2px; } }
+
+.u-heading-margin-top {
+  margin-top: 2.5rem; }
+
+.u-animation-appear {
+  animation: moveInBottom 1.5s ease-out; }
+
+.u-buffer {
+  width: 100%;
+  height: 10vh; }
+
+.gigs__book-us {
+  width: 80%;
+  margin: 1rem auto;
+  text-align: center;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: all .2s; }
+
+.gigs__btn:link,
+.gigs__btn:visited {
+  width: 100%;
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #222; }
+
+.gigs__book-us:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8); }
+
+.gigs__book-us:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8); }
+
+.line {
+  color: rgba(244, 244, 244, 0.5);
+  width: 80%;
+  margin: 3rem auto; }
+
+.contact__form {
+  text-align: center;
+  margin-top: 5rem;
+  transition: all 4s ease-out; }
+  .contact__form .form__input {
+    width: 60rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(244, 244, 244, 0.8);
+    color: #f4f4f4;
+    font-size: 1.6rem;
+    margin-bottom: 1.6rem; }
+    @media (max-width: 37.5em) {
+      .contact__form .form__input {
+        width: 50rem; } }
+    @media (max-width: 26.25em) {
+      .contact__form .form__input {
+        width: 35rem; } }
+    @media (max-width: 23.5em) {
+      .contact__form .form__input {
+        width: 30rem; } }
+  .contact__form input {
+    height: 4.5rem; }
+
+.form__input--submit {
+  background: #f4f4f4;
+  width: 60rem;
+  height: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: #222;
+  transition: all .2s;
+  cursor: pointer; }
+  .form__input--submit:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8); }
+  .form__input--submit:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8); }
+  @media (max-width: 37.5em) {
+    .form__input--submit {
+      width: 50rem; } }
+  @media (max-width: 26.25em) {
+    .form__input--submit {
+      width: 35rem; } }
+  @media (max-width: 23.5em) {
+    .form__input--submit {
+      width: 30rem; } }
+
+.header {
+  text-align: center; }
+  @media (max-width: 75em) {
+    .header {
+      margin-top: 4vh; } }
+  @media (max-width: 56.25em) {
+    .header {
+      margin-top: 2vh; } }
+  @media (max-width: 37.5em) {
+    .header {
+      margin-top: 2vh; } }
+  .header__logo-box {
+    width: 55%;
+    margin: 0 auto; }
+  .header__logo {
+    width: 75%;
+    z-index: 1; }
+    @media (max-width: 37.5em) {
+      .header__logo {
+        width: 100%; } }
+
+@media (max-width: 37.5em) {
+  #dsk-tbl {
+    display: none; } }
+
+#phone {
+  display: none; }
+  @media (max-width: 37.5em) {
+    #phone {
+      display: block; } }
+
+/**********Heading**********/
+.heading {
+  text-align: center; }
+
+.nav-btn {
+  display: none; }
+  @media (max-width: 56.25em) {
+    .nav-btn {
+      display: block; } }
+  .nav-btn__checkbox {
+    display: none; }
+  .nav-btn__button {
+    background-color: #222;
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    top: 0;
+    left: 3.5rem;
+    z-index: 2;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer; }
+    @media (max-width: 23.5em) {
+      .nav-btn__button {
+        left: 1.5rem; } }
+    @media (max-width: 75em) {
+      .nav-btn__button {
+        left: 2.5rem; } }
+    @media (max-width: 56.25em) {
+      .nav-btn__button {
+        left: 3rem; } }
+  .nav-btn__background {
+    height: 4.5rem;
+    width: 4.5rem;
+    position: fixed;
+    top: 0;
+    left: 3.5rem;
+    background-color: #222;
+    transition: transform .8s;
+    border-radius: 50%; }
+    @media (max-width: 23.5em) {
+      .nav-btn__background {
+        left: 1.5rem; } }
+  .nav-btn__checkbox:checked ~ .nav-btn__background {
+    transform: scale(80); }
+  .nav-btn__checkbox:checked ~ .navigation-menu {
+    opacity: 1;
+    width: 100%; }
+  .nav-btn__icon {
+    position: relative;
+    margin-top: 3rem; }
+    .nav-btn__icon, .nav-btn__icon::before, .nav-btn__icon::after {
+      width: 3rem;
+      height: 2px;
+      background-color: #f4f4f4;
+      display: inline-block; }
+    .nav-btn__icon::before, .nav-btn__icon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all .2s; }
+    .nav-btn__icon::before {
+      top: -.8rem; }
+    .nav-btn__icon::after {
+      top: .8rem; }
+  .nav-btn__checkbox:checked + .nav-btn__button .nav-btn__icon {
+    background-color: transparent; }
+  .nav-btn__checkbox:checked + .nav-btn__button .nav-btn__icon::before {
+    top: 0;
+    transform: rotate(135deg); }
+  .nav-btn__checkbox:checked + .nav-btn__button .nav-btn__icon::after {
+    top: 0;
+    transform: rotate(-135deg); }
+
+.navigation-menu {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  width: 0;
+  transition: all .8s; }
+  .navigation-menu__list {
+    list-style: none;
+    text-align: center; }
+  .navigation-menu__item {
+    margin: 1rem;
+    padding: 1rem 2rem; }
+  .navigation-menu__link {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #f4f4f4;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block; }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  background-color: #222; }
+  @media (max-width: 56.25em) {
+    .navbar {
+      height: 8vh; } }
+  @media (max-width: 75em) {
+    .navbar {
+      height: 9vh; } }
+
+.navbar__nav-links {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin: 0 auto; }
+  @media (max-width: 56.25em) {
+    .navbar__nav-links {
+      display: none; } }
+
+.navbar__nav-link {
+  position: relative; }
+
+.navbar__effect {
+  padding: .5rem 0;
+  letter-spacing: 4px;
+  color: #f4f4f4;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.navbar__effect::before,
+.navbar__effect::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #f4f4f4;
+  left: 0;
+  transform: scaleX(0);
+  transition: all .5s; }
+
+.navbar__effect::before {
+  top: 0;
+  transform-origin: left; }
+
+.navbar__effect::after {
+  bottom: 0;
+  transform-origin: right; }
+
+.navbar__effect:hover::before,
+.navbar__effect:hover::after {
+  transform: scale(1); }
+
+.navbar__nav-btn {
+  display: inline-block;
+  padding: 0.8rem;
+  cursor: pointer; }
+
+.navbar__nav-btn div {
+  width: 25px;
+  height: 3px;
+  background-color: #e2d4d4;
+  margin: 4px; }
+
+body .background-design--left {
+  background-image: url("../images/SadMathGraphic-left.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 40%;
+  height: 168rem;
+  position: absolute;
+  top: 39rem;
+  z-index: -1; }
+  @media (min-width: 112.5em) {
+    body .background-design--left {
+      width: 32%; } }
+  @media (max-width: 75em) {
+    body .background-design--left {
+      width: 50%; } }
+  @media (max-width: 64em) {
+    body .background-design--left {
+      width: 52%;
+      height: 150rem; } }
+  @media (max-width: 56.25em) {
+    body .background-design--left {
+      width: 49%;
+      height: 125rem; } }
+  @media (max-width: 50.75em) {
+    body .background-design--left {
+      width: 53%;
+      height: 121rem; } }
+  @media (max-width: 46em) {
+    body .background-design--left {
+      width: 56%;
+      height: 119rem; } }
+  @media (max-width: 45.688em) {
+    body .background-design--left {
+      width: 55%;
+      height: 120rem; } }
+  @media (max-width: 41.688em) {
+    body .background-design--left {
+      width: 58%;
+      height: 115rem; } }
+  @media (max-width: 40em) {
+    body .background-design--left {
+      width: 60%;
+      height: 110rem; } }
+  @media (max-width: 37.5em) {
+    body .background-design--left {
+      top: 44rem;
+      width: 51%;
+      height: 88rem; } }
+  @media (max-width: 26.25em) {
+    body .background-design--left {
+      width: 65%;
+      height: 81rem; } }
+  @media (max-width: 23.5em) {
+    body .background-design--left {
+      width: 70%;
+      height: 79rem; } }
+  @media (max-width: 20em) {
+    body .background-design--left {
+      width: 72%;
+      height: 70rem; } }
+
+body .background-design--right {
+  background-image: url("../images/SadMathGraphic-right.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 30%;
+  height: 118rem;
+  position: absolute;
+  right: 0;
+  z-index: -1; }
+  @media (min-width: 112.5em) {
+    body .background-design--right {
+      width: 20%; } }
+  @media (max-width: 56.25em) {
+    body .background-design--right {
+      width: 30%;
+      height: 80rem; } }
+  @media (max-width: 64em) {
+    body .background-design--right {
+      width: 35%; } }
+  @media (max-width: 46em) {
+    body .background-design--right {
+      width: 32%; } }
+  @media (max-width: 45.688em) {
+    body .background-design--right {
+      width: 33%;
+      height: 79rem; } }
+  @media (max-width: 41.688em) {
+    body .background-design--right {
+      width: 35%;
+      height: 78.5rem; } }
+  @media (max-width: 40em) {
+    body .background-design--right {
+      width: 37%;
+      height: 78rem; } }
+  @media (max-width: 37.5em) {
+    body .background-design--right {
+      width: 38%;
+      height: 76rem; } }
+  @media (max-width: 26.25em) {
+    body .background-design--right {
+      width: 50%;
+      height: 70rem; } }
+  @media (max-width: 23.5em) {
+    body .background-design--right {
+      width: 57%; } }
+  @media (max-width: 20em) {
+    body .background-design--right {
+      width: 60%;
+      height: 65rem; } }
+
+.photo-quote {
+  width: 100%;
+  margin-top: 2.5rem;
+  display: flex; }
+  @media (max-width: 37.5em) {
+    .photo-quote {
+      flex-direction: column;
+      align-items: center; } }
+  .photo-quote__quote {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .photo-quote__text {
+    color: #f4f4f4;
+    font-family: "Raleway", sans-serif;
+    font-size: 3rem;
+    margin-bottom: 7rem;
+    margin-left: 6rem; }
+    @media (min-width: 112.5em) {
+      .photo-quote__text {
+        width: 15%;
+        position: absolute;
+        left: 28%; } }
+    @media (max-width: 75em) {
+      .photo-quote__text {
+        margin-bottom: 3.5rem;
+        margin-bottom: 0;
+        margin-left: 0; } }
+    @media (max-width: 56.25em) {
+      .photo-quote__text {
+        font-size: 2rem; } }
+    @media (max-width: 37.5em) {
+      .photo-quote__text {
+        font-size: 1.5rem; } }
+    @media (max-width: 26.25em) {
+      .photo-quote__text {
+        font-size: 1rem;
+        letter-spacing: 1px; } }
+    @media (max-width: 23.5em) {
+      .photo-quote__text {
+        letter-spacing: .5px; } }
+    .photo-quote__text span {
+      font-size: 1.6rem;
+      font-family: "Raleway", sans-serif;
+      color: #89d2da;
+      display: block;
+      text-align: end;
+      text-transform: uppercase; }
+      @media (max-width: 26.25em) {
+        .photo-quote__text span {
+          font-size: 1rem;
+          margin-top: 1rem; } }
+  .photo-quote__photo {
+    width: 50%;
+    padding: 3rem; }
+    @media (max-width: 37.5em) {
+      .photo-quote__photo {
+        width: 100%;
+        text-align: center; } }
+  .photo-quote__img {
+    width: 90%;
+    border-radius: 10px;
+    filter: grayscale(100%);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5); }
+    @media (max-width: 37.5em) {
+      .photo-quote__img {
+        width: 80%; } }
+
+.heading {
+  margin-top: 4rem; }
+
+.music {
+  display: flex;
+  margin-top: 2rem; }
+  @media (max-width: 37.5em) {
+    .music {
+      flex-direction: column-reverse; } }
+  .music__container-1 {
+    width: 50%;
+    text-align: center; }
+    @media (max-width: 37.5em) {
+      .music__container-1 {
+        width: 100%; } }
+  .music__album-cover h2 {
+    font-family: "Courgette", cursive;
+    letter-spacing: 1px; }
+  .music__album-cover--image {
+    width: 50%;
+    margin: 1rem 2rem 2rem 2rem;
+    box-shadow: 8px 5px 5px rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(244, 244, 244, 0.5);
+    border-left: 1px solid rgba(244, 244, 244, 0.5);
+    cursor: pointer; }
+  .music__guitar-photo {
+    width: 50%;
+    margin: 2rem;
+    filter: grayscale(100%);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5); }
+  .music__container-2 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    @media (max-width: 37.5em) {
+      .music__container-2 {
+        width: 100%;
+        height: 60rem; } }
+    @media (max-width: 26.25em) {
+      .music__container-2 {
+        height: 50rem; } }
+  .music__playlist {
+    height: 90%;
+    width: 50%;
+    padding: 1.5rem;
+    background-color: #293030;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    font-family: "Courgette", cursive;
+    letter-spacing: 1px; }
+
+.gigs__heading {
+  text-align: center;
+  color: #f4f4f4;
+  font-family: "Raleway", sans-serif;
+  font-size: 3rem;
+  margin-top: 3rem; }
+  @media (max-width: 37.5em) {
+    .gigs__heading {
+      font-size: 2.5rem; } }
+  @media (max-width: 26.25em) {
+    .gigs__heading {
+      font-size: 1.8rem; } }
+  @media (max-width: 23.5em) {
+    .gigs__heading {
+      font-size: 1.5rem; } }
+
+.gigs__current-shows {
+  width: 80%;
+  margin: 1rem auto; }
+
+.gigs__show {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  color: #89d2da; }
+  .gigs__show span {
+    font-family: "Courgette", cursive; }
+
+.gigs__photo {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; }
+
+.gigs__img {
+  width: 60%;
+  height: 100%;
+  margin-top: 2rem;
+  border-radius: 5px;
+  filter: grayscale(100%);
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5); }
+  @media (max-width: 23.5em) {
+    .gigs__img {
+      width: 70%; } }
+
+.background-container {
+  display: flex;
+  justify-content: center; }
+
+.contact {
+  text-align: center; }
+  .contact__band-photo {
+    border-radius: 5px;
+    width: 80%;
+    height: 20rem;
+    margin: 0 auto; }
+    .contact__band-photo--img {
+      background-image: url("../images/look-left.JPG");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center bottom;
+      filter: grayscale(80%); }
+
+.icon-container {
+  width: 13%;
+  margin: 4rem auto;
+  display: flex; }
+  @media (max-width: 56.25em) {
+    .icon-container {
+      width: 18%; } }
+  @media (max-width: 37.5em) {
+    .icon-container {
+      width: 20%; } }
+  @media (max-width: 26.25em) {
+    .icon-container {
+      width: 35%; } }
+  @media (max-width: 23.5em) {
+    .icon-container {
+      width: 40%; } }
+  .icon-container .icon:link,
+  .icon-container .icon:visited {
+    text-decoration: none;
+    color: #f4f4f4; }
+  .icon-container ion-icon {
+    font-size: 4rem;
+    cursor: pointer; }
+    @media (max-width: 37.5em) {
+      .icon-container ion-icon {
+        padding: .5rem; } }
